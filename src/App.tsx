@@ -8,7 +8,7 @@ function App() {
             <Title>Styled-components <span>.attrs</span> method</Title>
 
             <Form>
-                <Field/>
+                <Field type={'text'}/>
                 <Field/>
                 <Field/>
             </Form>
@@ -32,7 +32,10 @@ const Form = styled.form`
   max-width: 500px;
 `;
 
-const Field = styled.input`
+const Field = styled.input.attrs(({type, placeholder})=> ({
+    type: type || 'password',
+    placeholder: placeholder || 'Please fill'
+})) `
   padding: 5px 15px;
   margin: 10px 0;
   width: 100%;
